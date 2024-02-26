@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main">
+      <UniqueIdentifier>{f432618b-b2c9-4a0f-a7ee-d33f12a98d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main">
+      <UniqueIdentifier>{72d0b988-43a1-4634-9f8b-33b32911be42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\Scene2D">
+      <UniqueIdentifier>{02c87f4a-661c-41ff-ab8c-edd45b385f8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\Scene2D">
+      <UniqueIdentifier>{62b6b4ba-ff3c-44a4-af20-87c0a15f33eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\GLOBAL">
+      <UniqueIdentifier>{3d5013f3-a896-4c4b-b56f-53355bc2e4ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\Scene2D\DynamicObject2D">
+      <UniqueIdentifier>{738b77a1-faf9-4e8d-82e9-bbb44addb1ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\Scene2D\DynamicObject2D">
+      <UniqueIdentifier>{39aaff72-0344-4da3-a594-ec917bebfc17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\Scene2D\DynamicObject2D\Base">
+      <UniqueIdentifier>{02a0ab09-257f-44d8-a772-633f6abcbeb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\Scene2D\DynamicObject2D\Base">
+      <UniqueIdentifier>{e671fed1-c10c-48e4-b15a-720928dcb85d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene2D.cpp">
+      <Filter>Pliki źródłowe\main</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawing2D.cpp">
+      <Filter>Pliki źródłowe\main\Scene2D</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicObject2D_Fast.cpp">
+      <Filter>Pliki źródłowe\main\Scene2D\DynamicObject2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Pliki źródłowe\main\Scene2D\DynamicObject2D\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicObject2D.cpp">
+      <Filter>Pliki źródłowe\main\Scene2D\DynamicObject2D\Base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define_Colors.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene2D.h">
+      <Filter>Pliki nagłówkowe\main</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawing2D.h">
+      <Filter>Pliki nagłówkowe\main\Scene2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicObject2D_Fast.h">
+      <Filter>Pliki nagłówkowe\main\Scene2D\DynamicObject2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Pliki nagłówkowe\main\Scene2D\DynamicObject2D\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicObject2D.h">
+      <Filter>Pliki nagłówkowe\main\Scene2D\DynamicObject2D\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

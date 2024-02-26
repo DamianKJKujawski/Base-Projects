@@ -1,0 +1,5 @@
+
+#define SCENE_WIDTH 40
+#define SCENE_HEIGHT 40
+
+#define DYNAMIC_OBJECT_CNT 500

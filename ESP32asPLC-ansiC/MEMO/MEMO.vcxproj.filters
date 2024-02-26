@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\MCU">
+      <UniqueIdentifier>{4e9d930c-5c7b-4596-ab2a-4507b2b23564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\MCU">
+      <UniqueIdentifier>{483196b4-9dec-4779-acfa-8b70583c9dba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\MCU\Instructions">
+      <UniqueIdentifier>{75c15a38-d963-4d61-8d52-a7ddf6b6cc42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\GLOBAL">
+      <UniqueIdentifier>{3e834dd4-9bd5-4e1f-a17f-11f89e48fbe8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="MCU.c">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Instructions.c">
+      <Filter>Pliki źródłowe\MCU</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MCU.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Instructions.h">
+      <Filter>Pliki nagłówkowe\MCU</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Opcode.h">
+      <Filter>Pliki nagłówkowe\MCU\Instructions</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

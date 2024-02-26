@@ -1,0 +1,11 @@
+﻿  Drawing2D.cpp
+  DynamicObject2D.cpp
+  DynamicObject2D_Fast.cpp
+  Scene2D.cpp
+  main.cpp
+  Trwa generowanie kodu
+  2 of 78 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  CrowdSimulation.vcxproj -> C:\Users\damia\Desktop\CrowdSimulation\x64\Release\CrowdSimulation.exe
