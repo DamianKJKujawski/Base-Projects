@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main-NeuralNetwork">
+      <UniqueIdentifier>{a174d484-2130-499e-9d78-c5f3520a5169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main-NeuralNetwork">
+      <UniqueIdentifier>{83ed9400-14cf-4e72-82e9-5ae28cd86894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\GLOBAL">
+      <UniqueIdentifier>{1f48657b-a4a9-4a21-a0a6-e1b89d756f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder">
+      <UniqueIdentifier>{9475f37d-d2f3-4636-a21a-cdd4a9abbcb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward">
+      <UniqueIdentifier>{9bb292a7-b55f-4bdf-8e82-312ec2937b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder">
+      <UniqueIdentifier>{7b10813c-0e7f-43ba-9b17-b63fb9ed51de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward">
+      <UniqueIdentifier>{1c1f2a27-f679-4fae-9860-40e413cb4a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward\NeuralNetwork">
+      <UniqueIdentifier>{4d89da43-8c93-4ee9-b7ae-56ec7a38c456}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork_FeedForwardCalculator.cpp">
+      <Filter>Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward\NeuralNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork_LayerErrors.cpp">
+      <Filter>Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward\NeuralNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork_WeightInitializer.cpp">
+      <Filter>Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward\NeuralNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork_Builder.cpp">
+      <Filter>Pliki źródłowe\main-NeuralNetwork</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetwork_FeedForward.cpp">
+      <Filter>Pliki źródłowe\main-NeuralNetwork\NeuralNetwork_Builder</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_Builder.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_WeightInitializer.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_ActivationFunction.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_FeedforwardCalculator.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_LayerErrors.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder\NeuralNetwork_FeedForward</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetwork_FeedForward.h">
+      <Filter>Pliki nagłówkowe\main-NeuralNetwork\NeuralNetwork_Builder</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.md" />
+  </ItemGroup>
+</Project>
