@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\GLOBAL">
+      <UniqueIdentifier>{52e4ed20-cf71-448b-950d-891aca88f40a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main">
+      <UniqueIdentifier>{9e4c7a69-35d7-457a-8eaa-9c98517b6b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main">
+      <UniqueIdentifier>{940fec86-89ec-450e-bf37-f82a9846f3a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes">
+      <UniqueIdentifier>{2666bfd1-a7bf-498b-9f03-e80f202dd758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\base">
+      <UniqueIdentifier>{bffc5374-111c-4dac-b1a0-da82e1cda4cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\glWindow_Scenes">
+      <UniqueIdentifier>{e1e4b549-d4ea-4a9a-8b32-8bc7b4988737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\glWindow_Scenes\base">
+      <UniqueIdentifier>{116eb53d-1e65-4a59-aef2-93a6b586ac7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\glScene">
+      <UniqueIdentifier>{2dbab150-e56f-47d6-b9d0-6a41559bfc51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\glScene\glDraw">
+      <UniqueIdentifier>{72c3ef44-e40b-4290-8464-a422f166d826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\parser">
+      <UniqueIdentifier>{1cf0886e-d238-47cc-8c42-ab574405b5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser">
+      <UniqueIdentifier>{364ec51d-20f8-4970-97e0-8fdd621ed7eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Math-Base">
+      <UniqueIdentifier>{957d9db9-0547-4201-a0d7-5a15d6b803ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Command">
+      <UniqueIdentifier>{81cc5a2c-f34e-4573-ba51-dc8a47fc74db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Command\base">
+      <UniqueIdentifier>{92bac170-49ab-4c69-8584-feb1f8bca244}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="glScene_Dynamic.cpp">
+      <Filter>Pliki źródłowe\main\glWindow_Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="glWindow.cpp">
+      <Filter>Pliki źródłowe\main</Filter>
+    </ClCompile>
+    <ClCompile Include="glDraw.cpp">
+      <Filter>Pliki źródłowe\main\glWindow_Scenes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Command.cpp">
+      <Filter>Pliki źródłowe\main\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Math.cpp">
+      <Filter>Pliki źródłowe\main\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Pliki źródłowe\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="glScene_Dynamic.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="glScene.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Help.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Quit.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Switch.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="CMD.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="glWindow.h">
+      <Filter>Pliki nagłówkowe\main</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene\glDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser_CMD.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command\base</Filter>
+    </ClInclude>
+    <ClInclude Include="glDraw.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Math.h">
+      <Filter>Pliki nagłówkowe\main\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Command.h">
+      <Filter>Pliki nagłówkowe\main\parser</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

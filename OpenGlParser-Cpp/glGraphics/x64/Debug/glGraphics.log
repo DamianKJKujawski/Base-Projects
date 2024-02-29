@@ -1,0 +1,12 @@
+﻿  glWindow.cpp
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(101,20): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(102,20): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(107,32): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(108,32): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(192,36): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(193,36): warning C4244: "=": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(255,20): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp(256,20): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+  main.cpp
+  Generowanie kodu...
+  glGraphics.vcxproj -> C:\Users\damia\Desktop\glGraphics\x64\Debug\glGraphics.exe
