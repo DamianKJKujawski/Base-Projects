@@ -55,6 +55,9 @@
     <Filter Include="Pliki nagłówkowe\main\parser\parser_Command\base">
       <UniqueIdentifier>{92bac170-49ab-4c69-8584-feb1f8bca244}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Math-Base\base">
+      <UniqueIdentifier>{65cb2238-d7ce-42c6-8a72-0e4cbab2c636}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,8 +78,11 @@
     <ClCompile Include="parser_Math.cpp">
       <Filter>Pliki źródłowe\main\parser</Filter>
     </ClCompile>
-    <ClCompile Include="parser.cpp">
+    <ClCompile Include="parsersManager.cpp">
       <Filter>Pliki źródłowe\main</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Help.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +98,7 @@
     <ClInclude Include="command_Help.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
     </ClInclude>
-    <ClInclude Include="command_Quit.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
-    </ClInclude>
-    <ClInclude Include="command_Switch.h">
+    <ClInclude Include="command_Switch_Math.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
     </ClInclude>
     <ClInclude Include="CMD.h">
@@ -107,9 +110,6 @@
     <ClInclude Include="stb_image.h">
       <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene\glDraw</Filter>
     </ClInclude>
-    <ClInclude Include="parser.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
-    </ClInclude>
     <ClInclude Include="Parser_CMD.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command\base</Filter>
     </ClInclude>
@@ -119,8 +119,23 @@
     <ClInclude Include="parser_Math.h">
       <Filter>Pliki nagłówkowe\main\parser</Filter>
     </ClInclude>
+    <ClInclude Include="command_Exit.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="parsersManager.h">
+      <Filter>Pliki nagłówkowe\main</Filter>
+    </ClInclude>
     <ClInclude Include="parser_Command.h">
       <Filter>Pliki nagłówkowe\main\parser</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser_Equations.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base\base</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Switch_Command.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Exit.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

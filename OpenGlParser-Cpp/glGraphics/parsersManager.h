@@ -10,7 +10,7 @@ class ParsersManager
 
 private:
 
-    CMD_RESULT(ParsersManager::* functionPtr)();
+    CMD_RESULT(ParsersManager::* methodPtr)();
 
     // CMD Thread:
     Parser_Command _parser_Command;
@@ -36,6 +36,8 @@ private:
 
     CMD_RESULT Parse_Math()
     {
+        CMD_RESULT _return = CMD_RESULT::INVALID;
+
         std::string _input;
         std::cout << "MATH > ";
         std::getline(std::cin, _input);
@@ -43,7 +45,12 @@ private:
         double _result = 0.0;
 
         // Parse Math Expression:
-        return _parser_Math.Parse(_input, _result);
+        _return = _parser_Math.Parse(_input, _result);
+
+        if(_return == CMD_RESULT::CORRECT)
+            std::cout << _result << std::endl;
+
+        return _return;
     }
 
 
@@ -52,7 +59,7 @@ public:
 
     ParsersManager() 
     {
-        this->functionPtr = &ParsersManager::Parse_Command;
+        this->methodPtr = &ParsersManager::Parse_Command;
     }
 
     ~ParsersManager()
@@ -62,12 +69,16 @@ public:
 
     CMD_RESULT Execute()
     {
-        CMD_RESULT _CMD_Result = (this->*functionPtr)();
+        CMD_RESULT _CMD_Result = (this->*methodPtr)();
 
         switch (_CMD_Result)
         {
-            case CMD_RESULT::SWITCH_TO_MATH_PARSER:
-                this->functionPtr = &ParsersManager::Parse_Math;
+            case CMD_RESULT::CMD_SWITCH_TO_MATH_PARSER:
+                this->methodPtr = &ParsersManager::Parse_Math;
+                break;
+
+            case CMD_RESULT::CMD_SWITCH_TO_COMMAND_PARSER:
+                this->methodPtr = &ParsersManager::Parse_Command;
                 break;
 
             default:

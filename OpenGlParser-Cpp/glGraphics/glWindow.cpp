@@ -28,12 +28,11 @@ OpenGLApp* OpenGLApp::Get_Instance()
 void OpenGLApp::Init(std::vector<Window_s> windows, int argc, char* argv[])
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA); // Updated display mode to include alpha channel
 
     // Get the desktop resolution
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
-
 
     for (const auto& window : windows) {
         int windowWidth = window.width;
@@ -46,18 +45,20 @@ void OpenGLApp::Init(std::vector<Window_s> windows, int argc, char* argv[])
         glutInitWindowSize(windowWidth, windowHeight);
         int _windowPtr = glutCreateWindow(window.name);
 
-        Get_CameraPointing(10, 24, Camera.lookAt.x, Camera.lookAt.x);
+        // Initialize OpenGL state for each window
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        glutMouseFunc(MouseClickCallback);
-        glutMotionFunc(MouseMotionCallback);
-
+        // Set OpenGL callbacks
         glutDisplayFunc(DisplayCallback);
         glutReshapeFunc(ReshapeCallback);
-
         glutSpecialFunc(SpecialKeyDownCallback);
         glutSpecialUpFunc(SpecialKeyUpCallback);
-
+        glutMouseFunc(MouseClickCallback);
+        glutMotionFunc(MouseMotionCallback);
         glutMouseWheelFunc(MouseWheelCallback);
+
+        // Additional initialization for each window can be added here
 
         glutMainLoop();
     }

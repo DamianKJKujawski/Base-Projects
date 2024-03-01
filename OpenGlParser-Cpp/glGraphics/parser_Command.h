@@ -2,7 +2,7 @@
 
 #include "command_Help.h"
 #include "command_Exit.h"
-#include "command_Switch.h"
+#include "command_Switch_Math.h"
 
 #include <map>
 
@@ -26,7 +26,7 @@ public:
 
         commands["exit"] = std::make_unique<Command_Exit>();
 
-        commands["math"] = std::make_unique<Command_Math>();
+        commands["math"] = std::make_unique<Command_Switch_Math>();
     }
 
     // Execute the command with given name and arguments

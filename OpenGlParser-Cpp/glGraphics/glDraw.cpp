@@ -1,4 +1,5 @@
 #include "glDraw.h"
+#include <iostream>
 
 //#Not object oriented
 #pragma warning(push)
@@ -57,6 +58,18 @@ void GlDraw::Draw_Dot(Point2D point)
     glEnd();
 }
 
+void GlDraw::Draw_Line(Point2D point, Point2D point2)
+{
+    glColor3f(0.0, 1.0, 1.0);
+
+    glBegin(GL_LINE_STRIP);
+
+    glVertex3f(point.x, point.y, 0);
+    glVertex3f(point2.x, point2.y, 0);
+
+    glEnd();
+}
+
 void GlDraw::Draw_Square(Point2D point, Size2D size)
 {
     glColor3f(0.0, 1.0, 1.0);
@@ -90,30 +103,15 @@ void GlDraw::Draw_Array(const std::vector<double> array, float startX, float sta
 
 
 
-void GlDraw::DrawTexture(GLuint textureID)
-{
-    glColor3f(1.0, 1.0, 1.0);
-
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-
-    glBegin(GL_QUADS);
-    glTexCoord2f(0.0, 1.0); glVertex3f(0.0, 0.0, 0.0);
-    glTexCoord2f(0.0, 0.0); glVertex3f(0.0, 1.0, 0.0);
-    glTexCoord2f(1.0, 0.0); glVertex3f(1.0, 1.0, 0.0);
-    glTexCoord2f(1.0, 1.0); glVertex3f(1.0, 0.0, 0.0);
-    glEnd();
-
-    glDisable(GL_TEXTURE_2D);
-}
-
-void GlDraw::LoadTexture(const char* filename, int& textureWidth, int& textureHeight, GLuint& textureID)
+void GlDraw::LoadTexture(const char* filename, GLuint& textureID)
 {
     int width, height, channels;
     unsigned char* image = stbi_load(filename, &width, &height, &channels, STBI_rgb_alpha);
 
     if (image == nullptr)
     {
+        std::cerr << "ERROR: Unable to load " << filename << std::endl;
+
         return;
     }
 
@@ -126,7 +124,30 @@ void GlDraw::LoadTexture(const char* filename, int& textureWidth, int& textureHe
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    textureWidth = width;
-    textureHeight = height;
 }
+
+void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Size2D point, Size2D textureSize, GLfloat z)
+{
+    if (glIsTexture(textureID) != GL_TRUE) 
+    {
+        GlDraw::LoadTexture(filename, textureID);
+    }
+        
+
+
+    glColor3f(1.0, 1.0, 1.0);
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0, 1.0); glVertex3f(point.x, point.y, z);
+    glTexCoord2f(0.0, 0.0); glVertex3f(point.x, point.y + textureSize.y, z);
+    glTexCoord2f(1.0, 0.0); glVertex3f(point.x + textureSize.x, point.y + textureSize.y, z);
+    glTexCoord2f(1.0, 1.0); glVertex3f(point.x + textureSize.x, point.y, z);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D);
+}
+
+

@@ -1,7 +1,8 @@
-C:\Users\damia\Desktop\glGraphics\glGraphics\parsersManager.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\parsersManager.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\parser_Command.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\parser_Command.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\glDraw.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\glDraw.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\glScene_Dynamic.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\glScene_Dynamic.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\glWindow.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\glWindow.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\main.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\main.obj
-C:\Users\damia\Desktop\glGraphics\glGraphics\parser_Math.cpp;C:\Users\damia\Desktop\glGraphics\glGraphics\x64\Debug\parser_Math.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\parsersManager.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\parsersManager.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\parser_Command.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\parser_Command.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\glDraw.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\glDraw.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\glScene_Dynamic.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\glScene_Dynamic.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\glWindow.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\glWindow.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\main.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\main.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\parser_Help.h;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\parser_Help.obj
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\parser_Math.cpp;C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\x64\Debug\parser_Math.obj

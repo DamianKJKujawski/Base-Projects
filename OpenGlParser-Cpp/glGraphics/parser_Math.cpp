@@ -1,8 +1,24 @@
 #include "parser_Math.h"
 
-
-
 CMD_RESULT Parser_Math::Parse(const std::string& expression, double& result)
+{
+	CMD_RESULT _result = CMD_RESULT::INVALID;
+
+	auto _foundCommand = commands.find(expression);
+
+	if (_foundCommand != commands.end())
+	{
+		_result = _foundCommand->second->Execute("");
+	}
+	else
+	{
+		_result = Parser_Math::Parse_Math(expression, result);
+	}
+
+	return _result;
+}
+
+CMD_RESULT Parser_Math::Parse_Math(const std::string& expression, double& result)
 {
 	std::string _exp = RemoveEmptySpaces(expression);
 	std::stack<double> _numbers;
