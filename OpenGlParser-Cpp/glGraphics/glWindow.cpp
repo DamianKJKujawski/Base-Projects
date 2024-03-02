@@ -7,7 +7,6 @@ OpenGLApp* OpenGLApp::OpenGLAppInstance = nullptr;
 OpenGLApp::OpenGLApp() 
 {
     OpenGLAppInstance = this;
-    Current_GlScene = nullptr;
 }
 OpenGLApp::~OpenGLApp() 
 {
@@ -80,12 +79,23 @@ void OpenGLApp::SpecialKeyUpCallback(int key, int x, int y)
     }
 }
 
-void OpenGLApp::SpecialKeyUp(int key, int x, int y)
-{
 
+
+void OpenGLApp::Set_SpecialKeyUpFunc(void (*SpecialKeyUpFunc)(int key, int x, int y)) {
+    SpecialKeyUp_CallbackPtr = SpecialKeyUpFunc;
+}
+
+void OpenGLApp::Set_SpecialKeyDownFunc(void (*SpecialKeyDownFunc)(int key, int x, int y)) {
+    SpecialKeyDown_CallbackPtr = SpecialKeyDownFunc;
 }
 
 
+
+void OpenGLApp::SpecialKeyUp(int key, int x, int y)
+{
+    if(SpecialKeyUp_CallbackPtr != nullptr)
+        SpecialKeyUp_CallbackPtr(key, x, y);
+}
 
 void OpenGLApp::MouseMotionCallback(int x, int y)
 {
@@ -165,7 +175,8 @@ void OpenGLApp::SpecialKeyDownCallback(int key, int x, int y)
 
 void OpenGLApp::SpecialKeyDown(int key, int x, int y)
 {
-
+    if (SpecialKeyDown_CallbackPtr != nullptr)
+        SpecialKeyDown_CallbackPtr(key, x, y);
 }
 
 
@@ -228,10 +239,12 @@ void OpenGLApp::Display()
     glScalef(Camera.zoom, Camera.zoom, 1.0f);
     glTranslatef(Camera.position.x, Camera.position.y, 0.0f);
 
+    
 
     // Here we draw scene:
-    if (Current_GlScene)  {
-        Current_GlScene->Draw();
+    if (Current_GlScene)  
+    {
+        Current_GlScene->Draw(Camera.position.x, Camera.position.y);
     }
 
 

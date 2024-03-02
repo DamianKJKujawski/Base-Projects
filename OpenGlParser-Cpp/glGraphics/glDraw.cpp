@@ -37,6 +37,12 @@ GlDraw* GlDraw::Get_Instance()
 
 
 
+
+inline Point3D GlDraw::Get_ShiftedPosition(Point3D point)
+{
+    return Point3D{ point.x + (cameraShift.x * point.z), point.y + (cameraShift.y * point.z), point.z };
+}
+
 void GlDraw::Draw_Text(const char* text, Point2D point)
 {
     glColor3f(0.0, 1.0, 0.0);
@@ -46,6 +52,11 @@ void GlDraw::Draw_Text(const char* text, Point2D point)
     {
         glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *c);
     }
+}
+
+void GlDraw::Set_CameraShift(Point2D point)
+{
+    this->cameraShift = point;
 }
 
 void GlDraw::Draw_Dot(Point2D point)
@@ -126,14 +137,21 @@ void GlDraw::LoadTexture(const char* filename, GLuint& textureID)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
-void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Size2D point, Size2D textureSize, GLfloat z)
+void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Point3D point, Size2D textureSize, bool draw)
 {
     if (glIsTexture(textureID) != GL_TRUE) 
     {
         GlDraw::LoadTexture(filename, textureID);
-    }
-        
 
+        return;
+    }
+     
+    if (!draw)
+        return;
+
+
+
+    point = GlDraw::Get_ShiftedPosition(point);
 
     glColor3f(1.0, 1.0, 1.0);
 
@@ -141,10 +159,10 @@ void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Size2D point, 
     glBindTexture(GL_TEXTURE_2D, textureID);
 
     glBegin(GL_QUADS);
-    glTexCoord2f(0.0, 1.0); glVertex3f(point.x, point.y, z);
-    glTexCoord2f(0.0, 0.0); glVertex3f(point.x, point.y + textureSize.y, z);
-    glTexCoord2f(1.0, 0.0); glVertex3f(point.x + textureSize.x, point.y + textureSize.y, z);
-    glTexCoord2f(1.0, 1.0); glVertex3f(point.x + textureSize.x, point.y, z);
+    glTexCoord2f(0.0, 1.0); glVertex3f(point.x, point.y, point.z);
+    glTexCoord2f(0.0, 0.0); glVertex3f(point.x, point.y + textureSize.y, point.z);
+    glTexCoord2f(1.0, 0.0); glVertex3f(point.x + textureSize.x, point.y + textureSize.y, point.z);
+    glTexCoord2f(1.0, 1.0); glVertex3f(point.x + textureSize.x, point.y, point.z);
     glEnd();
 
     glDisable(GL_TEXTURE_2D);

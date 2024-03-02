@@ -13,6 +13,12 @@ struct Point2D
 
 typedef Point2D Size2D;
 
+struct Point3D
+{
+    float x;
+    float y;
+    float z;
+};
 
 
 class GlDraw
@@ -25,14 +31,24 @@ class GlDraw
 
         static GlDraw* GlDrawInstance;
 
+        Point2D cameraShift = Point2D{ 0,0 };
+
+
+
+        inline Point3D Get_ShiftedPosition(Point3D point);
+
 
 
     public:
 
         static GlDraw* Get_Instance();
 
+
+
+        void Set_CameraShift(Point2D point);
+
         void LoadTexture(const char* filename, GLuint& textureID);
-        void DrawTexture(GLuint& textureID, const char* filename, Size2D point, Size2D textureSize, GLfloat z);
+        void DrawTexture(GLuint& textureID, const char* filename, Point3D point, Size2D textureSize, bool draw);
 
         void Draw_Text(const char* text, Point2D point);
         void Draw_Dot(Point2D point);

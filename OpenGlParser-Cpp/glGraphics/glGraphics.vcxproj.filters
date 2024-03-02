@@ -75,14 +75,14 @@
     <ClCompile Include="parser_Command.cpp">
       <Filter>Pliki źródłowe\main\parser</Filter>
     </ClCompile>
-    <ClCompile Include="parser_Math.cpp">
-      <Filter>Pliki źródłowe\main\parser</Filter>
-    </ClCompile>
     <ClCompile Include="parsersManager.cpp">
       <Filter>Pliki źródłowe\main</Filter>
     </ClCompile>
     <ClCompile Include="parser_Help.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Math.cpp">
+      <Filter>Pliki źródłowe\main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

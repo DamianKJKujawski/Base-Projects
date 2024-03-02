@@ -71,7 +71,7 @@ private:
 
     static OpenGLApp* OpenGLAppInstance;
 
-    GlScene* Current_GlScene;
+    GlScene* Current_GlScene = nullptr;
 
     std::atomic<bool> glutDestroyWindow_Flag = false;
 
@@ -79,6 +79,10 @@ private:
     GlCamera_s Camera; 
 
     GlPoint2D_s Mouse_lastPosition;
+
+    void (*SpecialKeyDown_CallbackPtr)(int key, int x, int y) = nullptr;
+    void (*SpecialKeyUp_CallbackPtr)(int key, int x, int y) = nullptr;
+
 
 
     
@@ -115,6 +119,9 @@ public:
 
 
 
+    void Set_SpecialKeyUpFunc(void (*SpecialKeyUpFunc)(int key, int x, int y));
+    void Set_SpecialKeyDownFunc(void (*SpecialKeyDownFunc)(int key, int x, int y));
+    
     void Init(std::vector<Window_s> windows, int argc, char* argv[]);
 
     void Set_Scene(GlScene* scene);

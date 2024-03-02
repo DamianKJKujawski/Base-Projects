@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\main.cpp(31,9): warning C4101: "textureWidth": lokalna zmienna, do której nie istnieje odwołanie
-C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\main.cpp(32,9): warning C4101: "textureHeight": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\main.cpp(34,43): warning C4305: "+=": obcięcie z "double" do "float"
+C:\Users\damia\Desktop\OpenGlParser-Cpp\glGraphics\main.cpp(41,28): warning C4305: "inicjowanie": obcięcie z "double" do "float"
   glGraphics.vcxproj -> C:\Users\damia\Desktop\OpenGlParser-Cpp\x64\Debug\glGraphics.exe
