@@ -13,6 +13,7 @@
 #include "parser_Switch_Command.h"
 #include "parser_Help.h"
 #include "parser_Exit.h"
+#include "parser_Graph.h"
 
 
 
@@ -23,8 +24,10 @@ private:
 
 	std::map<std::string, std::unique_ptr<Parser_CMD>> commands;
 
-	std::string previousEquation;
 	std::unordered_map<char, double> variables;
+
+	std::string previousExpression;
+
 
 
 	bool IsOperator(char c);
@@ -40,6 +43,8 @@ public:
     Parser_Math()
     {
         // Add commands to the map
+		commands["graph"] = std::make_unique<Parser_Graph>();
+
         commands["help"] = std::make_unique<Parser_Help>(commands);
 
         commands["exit"] = std::make_unique<Parser_Exit>();
@@ -49,8 +54,12 @@ public:
 
 
 
-	CMD_RESULT Parse(const std::string& expression, double& result);
+	CMD_RESULT Parse(const std::string& expression, double& result, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override;
 	CMD_RESULT Parse_Math(const std::string& expression, double& result);
+
+	bool Recalculate(char variable, double value, double& result);
+
+
 
 };
 

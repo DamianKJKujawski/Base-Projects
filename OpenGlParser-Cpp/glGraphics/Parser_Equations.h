@@ -16,6 +16,6 @@ public:
 
 
 
-    virtual CMD_RESULT Parse(const std::string& expression, double& result) = 0;
+    virtual CMD_RESULT Parse(const std::string& expression, double& result, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) = 0;
 
 };

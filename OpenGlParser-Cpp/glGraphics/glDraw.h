@@ -1,6 +1,8 @@
 #ifndef GLDRAW_H
 #define GLDRAW_H
 
+#include <iostream>
+#include <string>
 #include <vector>
 #include <GL/freeglut.h>
 
@@ -47,14 +49,16 @@ class GlDraw
 
         void Set_CameraShift(Point2D point);
 
-        void LoadTexture(const char* filename, GLuint& textureID);
-        void DrawTexture(GLuint& textureID, const char* filename, Point3D point, Size2D textureSize, bool draw);
+        
+        bool LoadTexture(const char* filename, GLuint& textureID);
+        void DrawTexture(GLuint textureID, Point3D point, Size2D textureSize);
+        void DrawTexture(GLuint& textureID, const char* filename, Point3D point, Size2D textureSize);
 
-        void Draw_Text(const char* text, Point2D point);
+        void Draw_Text(const std::string text, Point2D point);
         void Draw_Dot(Point2D point);
         void Draw_Line(Point2D point, Point2D point2);
         void Draw_Square(Point2D point, Size2D size);
-        void Draw_Array(const std::vector<double> array, float startX, float startY);
+        void Draw_Array(const std::vector<float>& array, Point2D point);
 };
 
 #endif

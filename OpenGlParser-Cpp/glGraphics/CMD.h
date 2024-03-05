@@ -13,7 +13,12 @@ enum class CMD_RESULT
 
     GL_DRAW_POINT,
     GL_DRAW_LINE,
+    GL_DRAW_SQUARE,
     GL_DRAW_TEXT,
+    GL_DRAW_GRAPH,
+
+    GL_LOAD_TEXTURE,
+    GL_DRAW_TEXTURE,
 
     QUIT,
     EXIT,

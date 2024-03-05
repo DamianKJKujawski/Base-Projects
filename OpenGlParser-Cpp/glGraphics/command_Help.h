@@ -22,7 +22,7 @@ public:
 
 
 
-    CMD_RESULT Execute(const std::string& args) override
+    CMD_RESULT Execute(const std::string& args, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override
     {
         std::cout << "HELP: Available commands: " << args << "\n";
 

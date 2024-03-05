@@ -43,14 +43,14 @@ inline Point3D GlDraw::Get_ShiftedPosition(Point3D point)
     return Point3D{ point.x + (cameraShift.x * point.z), point.y + (cameraShift.y * point.z), point.z };
 }
 
-void GlDraw::Draw_Text(const char* text, Point2D point)
+void GlDraw::Draw_Text(const std::string text, Point2D point)
 {
     glColor3f(0.0, 1.0, 0.0);
 
     glRasterPos2f(point.x, point.y);
-    for (const char* c = text; *c != '\0'; ++c)
+    for (char c : text)
     {
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *c);
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, c);
     }
 }
 
@@ -75,8 +75,8 @@ void GlDraw::Draw_Line(Point2D point, Point2D point2)
 
     glBegin(GL_LINE_STRIP);
 
-    glVertex3f(point.x, point.y, 0);
-    glVertex3f(point2.x, point2.y, 0);
+    glVertex2f(point.x, point.y);
+    glVertex2f(point2.x, point2.y);
 
     glEnd();
 }
@@ -87,16 +87,16 @@ void GlDraw::Draw_Square(Point2D point, Size2D size)
 
     glBegin(GL_LINE_STRIP);
 
-    glVertex3f(point.x, point.y, 0);
-    glVertex3f(point.x + size.x, point.y, 0);
-    glVertex3f(point.x + size.x, point.y + size.y, 0);
-    glVertex3f(point.x, point.y + size.y, 0);
-    glVertex3f(point.x, point.y, 0);
+    glVertex2f(point.x, point.y);
+    glVertex2f(point.x + size.x, point.y);
+    glVertex2f(point.x + size.x, point.y + size.y);
+    glVertex2f(point.x, point.y + size.y);
+    glVertex2f(point.x, point.y);
 
     glEnd();
 }
 
-void GlDraw::Draw_Array(const std::vector<double> array, float startX, float startY)
+void GlDraw::Draw_Array(const std::vector<float>& array, Point2D point)
 {
     glColor3f(0.0, 1.0, 1.0);
 
@@ -104,9 +104,9 @@ void GlDraw::Draw_Array(const std::vector<double> array, float startX, float sta
 
     for (size_t x = 0; x < array.size(); x++)
     {
-        float _y = (float)array[x];
+        float _y = array[x];
 
-        glVertex3f((x + startX), _y + startY, 0.0);
+        glVertex2f((x + point.x), _y + point.y);
     }
 
     glEnd();
@@ -114,7 +114,7 @@ void GlDraw::Draw_Array(const std::vector<double> array, float startX, float sta
 
 
 
-void GlDraw::LoadTexture(const char* filename, GLuint& textureID)
+bool GlDraw::LoadTexture(const char* filename, GLuint& textureID)
 {
     int width, height, channels;
     unsigned char* image = stbi_load(filename, &width, &height, &channels, STBI_rgb_alpha);
@@ -123,7 +123,7 @@ void GlDraw::LoadTexture(const char* filename, GLuint& textureID)
     {
         std::cerr << "ERROR: Unable to load " << filename << std::endl;
 
-        return;
+        return false;
     }
 
     glGenTextures(1, &textureID);
@@ -135,9 +135,33 @@ void GlDraw::LoadTexture(const char* filename, GLuint& textureID)
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    if (glIsTexture(textureID) == GL_TRUE)
+        return true;
+    else 
+        return false;
 }
 
-void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Point3D point, Size2D textureSize, bool draw)
+void GlDraw::DrawTexture(GLuint textureID, Point3D point, Size2D textureSize)
+{
+    point = GlDraw::Get_ShiftedPosition(point);
+
+    glColor3f(1.0, 1.0, 1.0);
+
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0, 1.0); glVertex3f(point.x, point.y, point.z);
+    glTexCoord2f(0.0, 0.0); glVertex3f(point.x, point.y + textureSize.y, point.z);
+    glTexCoord2f(1.0, 0.0); glVertex3f(point.x + textureSize.x, point.y + textureSize.y, point.z);
+    glTexCoord2f(1.0, 1.0); glVertex3f(point.x + textureSize.x, point.y, point.z);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D);
+}
+
+void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Point3D point, Size2D textureSize)
 {
     if (glIsTexture(textureID) != GL_TRUE) 
     {
@@ -146,9 +170,6 @@ void GlDraw::DrawTexture(GLuint &textureID, const char* filename, Point3D point,
         return;
     }
      
-    if (!draw)
-        return;
-
 
 
     point = GlDraw::Get_ShiftedPosition(point);

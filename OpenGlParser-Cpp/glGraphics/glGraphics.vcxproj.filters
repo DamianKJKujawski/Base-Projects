@@ -137,5 +137,26 @@
     <ClInclude Include="parser_Exit.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
     </ClInclude>
+    <ClInclude Include="command_Line.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Point.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Square.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Text.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Graph.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Load.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Texture.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

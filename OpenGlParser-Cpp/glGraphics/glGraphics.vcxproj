@@ -142,6 +142,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMD.h" />
+    <ClInclude Include="command_Load.h" />
+    <ClInclude Include="command_Point.h" />
+    <ClInclude Include="command_Line.h" />
+    <ClInclude Include="command_Square.h" />
+    <ClInclude Include="command_Text.h" />
+    <ClInclude Include="command_Texture.h" />
+    <ClInclude Include="parser_Graph.h" />
     <ClInclude Include="parser_Exit.h" />
     <ClInclude Include="parser_Switch_Command.h" />
     <ClInclude Include="parsersManager.h" />

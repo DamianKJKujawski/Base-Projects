@@ -10,7 +10,7 @@ class Parser_Switch_Command : public Parser_CMD
 
 public:
 
-    CMD_RESULT Execute(const std::string& args) override
+    CMD_RESULT Execute(const std::string& args, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override
     {
         std::cout << "CMD Parser: " << args << "\n";
 

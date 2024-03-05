@@ -1,14 +1,27 @@
 #include "parser_Math.h"
 
-CMD_RESULT Parser_Math::Parse(const std::string& expression, double& result)
+CMD_RESULT Parser_Math::Parse(const std::string& expression, double& result, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s)
 {
 	CMD_RESULT _result = CMD_RESULT::INVALID;
 
-	auto _foundCommand = commands.find(expression);
+	size_t _position = expression.find(' ');
+
+	std::string _command;
+	std::string _arg;
+
+	if (_position == -1)
+		_command = expression;
+	else
+	{
+		_command = expression.substr(0, _position);
+		_arg = expression.substr(_position, expression.length() - 1);
+	}
+
+	auto _foundCommand = commands.find(_command);
 
 	if (_foundCommand != commands.end())
 	{
-		_result = _foundCommand->second->Execute("");
+		_result = _foundCommand->second->Execute(_arg, outputVector_f, outputVector_s);
 	}
 	else
 	{
@@ -91,7 +104,8 @@ CMD_RESULT Parser_Math::Parse_Math(const std::string& expression, double& result
 				double _val;
 
 				std::cin >> _val;
-				if(isdigit((int)_val))
+
+				if (std::cin.good()) 
 				{
 					variables[_c] = _val;
 
@@ -122,12 +136,25 @@ CMD_RESULT Parser_Math::Parse_Math(const std::string& expression, double& result
 			return CMD_RESULT::INVALID;
 	}
 
-	previousEquation = _exp;
 	result = _numbers.top();
+	this->previousExpression = expression;
 
 	return CMD_RESULT::CORRECT;
 }
 
+bool Parser_Math::Recalculate(char variable, double value, double& result)
+{
+	if (variables.find(variable) != variables.end()) 
+	{
+		variables[variable] = value;
+		Parser_Math::Parse_Math(this->previousExpression, result);
+
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 
