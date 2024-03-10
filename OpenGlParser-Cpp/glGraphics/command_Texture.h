@@ -1,39 +1,30 @@
 #pragma once
 
-#include "Parser_CMD.h"
+#include "Parser_Base.h"
+#include "StringCommandParser.h"
 
 
 
-class Command_Texture : public Parser_CMD
+class Command_Texture : public Parser_Base
 {
+
 private:
 
-    const int parameters_Cnt = 6;
+    const size_t parameters_Cnt = 6;
 
 
 
 public:
 
-    CMD_RESULT Execute(const std::string& args, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override
-    {
-        CMD_RESULT _return = CMD_RESULT::INVALID;
+    Command_Texture() {}
+    ~Command_Texture() {}
 
-        std::vector<std::string> _stringVector = ArgParser::Split_String(args);
 
-        if (_stringVector.size() == parameters_Cnt)
-        {
-            try
-            {
-                outputVector_f = ArgParser::Convert_StringVectorToFloatVector(_stringVector, parameters_Cnt);
 
-                _return = CMD_RESULT::GL_DRAW_TEXTURE;
-            }
-            catch (const std::exception& e)
-            {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
-        }
-
-        return _return;
+    std::string Get_Description() override {
+        return "Draw Texture [Index Point.x Point.y Size.x Size.y]";
     }
+
+    CMD_RESULT Execute(const std::string& args, CommandData_t& outCommandData) override;
+
 };

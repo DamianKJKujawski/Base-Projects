@@ -2,24 +2,17 @@
 
 
 
-OpenGLApp* OpenGLApp::OpenGLAppInstance = nullptr;
+OpenGLApp* OpenGLApp::OpenGLApp_Instance = nullptr;
 
-OpenGLApp::OpenGLApp() 
-{
-    OpenGLAppInstance = this;
-}
-OpenGLApp::~OpenGLApp() 
-{
-    delete Current_GlScene;
-}
+
 
 OpenGLApp* OpenGLApp::Get_Instance()
 {
-    if (!OpenGLAppInstance)
+    if (!OpenGLApp_Instance)
     {
-        OpenGLAppInstance = new OpenGLApp();
+        OpenGLApp_Instance = new OpenGLApp();
     }
-    return OpenGLAppInstance;
+    return OpenGLApp_Instance;
 }
 
 
@@ -27,28 +20,29 @@ OpenGLApp* OpenGLApp::Get_Instance()
 void OpenGLApp::Init(std::vector<Window_s> windows, int argc, char* argv[])
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA); // Updated display mode to include alpha channel
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA); // Include alpha channel
 
-    // Get the desktop resolution
-    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+    // Get the desktop resolution:
+    int _screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int _screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-    for (const auto& window : windows) {
-        int windowWidth = window.width;
-        int windowHeight = window.height;
-        int windowX = (screenWidth - windowWidth) / 2;
-        int windowY = (screenHeight - windowHeight) / 2;
+    for (const auto& window : windows) 
+    {
+        int _windowWidth = window.width;
+        int _windowHeight = window.height;
+        int _windowX = (_screenWidth - _windowWidth) / 2;
+        int _windowY = (_screenHeight - _windowHeight) / 2;
 
-        // Set the window position
-        glutInitWindowPosition(windowX, windowY);
-        glutInitWindowSize(windowWidth, windowHeight);
+        // Set the window position:
+        glutInitWindowPosition(_windowX, _windowY);
+        glutInitWindowSize(_windowWidth, _windowHeight);
         int _windowPtr = glutCreateWindow(window.name);
 
-        // Initialize OpenGL state for each window
+        // Initialize OpenGL state for each window:
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        // Set OpenGL callbacks
+        // Set OpenGL callbacks:
         glutDisplayFunc(DisplayCallback);
         glutReshapeFunc(ReshapeCallback);
         glutSpecialFunc(SpecialKeyDownCallback);
@@ -57,78 +51,81 @@ void OpenGLApp::Init(std::vector<Window_s> windows, int argc, char* argv[])
         glutMotionFunc(MouseMotionCallback);
         glutMouseWheelFunc(MouseWheelCallback);
 
-        // Additional initialization for each window can be added here
-
+        //  Run:
         glutMainLoop();
     }
 }
 
-void OpenGLApp::Set_Scene(GlScene* scene)
+
+
+void OpenGLApp::Set_SpecialKeyUpFunc_Callback(void (*SpecialKeyUpFunc)(int key, int x, int y))
 {
-    delete Current_GlScene;
-    Current_GlScene = scene;
+    glInput.Set_SpecialKeyUpFunc(SpecialKeyUpFunc);
+}
+
+void OpenGLApp::Set_SpecialKeyDownFunc_Callback(void (*SpecialKeyDownFunc)(int key, int x, int y))
+{
+    glInput.Set_SpecialKeyUpFunc(SpecialKeyDownFunc);
 }
 
 
 
 void OpenGLApp::SpecialKeyUpCallback(int key, int x, int y)
 {
-    if (OpenGLAppInstance != nullptr)
+    if (OpenGLApp_Instance != nullptr)
     {
-        OpenGLAppInstance->SpecialKeyUp(key, x, y);
+        OpenGLApp_Instance->glInput.SpecialKey_Up(key, x, y);
     }
-}
-
-
-
-void OpenGLApp::Set_SpecialKeyUpFunc(void (*SpecialKeyUpFunc)(int key, int x, int y)) {
-    SpecialKeyUp_CallbackPtr = SpecialKeyUpFunc;
-}
-
-void OpenGLApp::Set_SpecialKeyDownFunc(void (*SpecialKeyDownFunc)(int key, int x, int y)) {
-    SpecialKeyDown_CallbackPtr = SpecialKeyDownFunc;
-}
-
-
-
-void OpenGLApp::SpecialKeyUp(int key, int x, int y)
-{
-    if(SpecialKeyUp_CallbackPtr != nullptr)
-        SpecialKeyUp_CallbackPtr(key, x, y);
 }
 
 void OpenGLApp::MouseMotionCallback(int x, int y)
 {
-    if (OpenGLAppInstance != nullptr)
+    if (OpenGLApp_Instance != nullptr)
     {
-        OpenGLAppInstance->MouseMotion(x, y);
+        OpenGLApp_Instance->glInput.Mouse_Motion(x, y);
     }
 }
 
-void OpenGLApp::MouseMotion(int x, int y)
+void OpenGLApp::MouseWheelCallback(int wheel, int direction, int x, int y)
 {
-    if (HID.mouse.right.pressed)
+    if (OpenGLApp_Instance != nullptr)
     {
-        int deltaX = x - Mouse_lastPosition.x;
-        int deltaY = y - Mouse_lastPosition.y;
-
-        Camera.position.x += (2 * (static_cast<float>(deltaX) / glutGet(GLUT_WINDOW_WIDTH))) / Camera.zoom;
-        Camera.position.y -= (2 * (static_cast<float>(deltaY) / glutGet(GLUT_WINDOW_HEIGHT)) / Camera.zoom);
-
-        Mouse_lastPosition.x = x;
-        Mouse_lastPosition.y = y;
-
-        glutPostRedisplay();
+        OpenGLApp_Instance->glInput.Mouse_Wheel(direction, x, y);
     }
+}
+
+void OpenGLApp::SpecialKeyDownCallback(int key, int x, int y)
+{
+    if (OpenGLApp_Instance != nullptr)
+    {
+        OpenGLApp_Instance->glInput.SpecialKey_Down(key, x, y);
+    }
+}
+
+void OpenGLApp::MouseClickCallback(int button, int state, int x, int y)
+{
+    if (OpenGLApp_Instance != nullptr)
+    {
+        OpenGLApp_Instance->glInput.Mouse_Click(button, state, x, y);
+    }
+}
+
+
+
+void OpenGLApp::Set_Scene(GlScene_Base* scene)
+{
+    delete current_glScene_Ptr;
+
+    current_glScene_Ptr = scene;
 }
 
 
 
 void OpenGLApp::ReshapeCallback(int width, int height)
 {
-    if (OpenGLAppInstance != nullptr)
+    if (OpenGLApp_Instance != nullptr)
     {
-        OpenGLAppInstance->Reshape(width, height);
+        OpenGLApp_Instance->Reshape(width, height);
     }
 }
 
@@ -141,91 +138,13 @@ void OpenGLApp::Reshape(int width, int height)
 
 
 
-void OpenGLApp::MouseWheelCallback(int wheel, int direction, int x, int y)
-{
-    if (OpenGLAppInstance != nullptr)
-    {
-        OpenGLAppInstance->MouseWheel(wheel, direction, x, y);
-    }
-}
-
-void OpenGLApp::MouseWheel(int wheel, int direction, int x, int y)
-{
-    if (direction > 0)
-    {
-        Camera.zoom *= 1.1f;
-    }
-    else
-    {
-        Camera.zoom /= 1.1f;
-    }
-
-    glutPostRedisplay();
-}
-
-
-
-void OpenGLApp::SpecialKeyDownCallback(int key, int x, int y)
-{
-    if (OpenGLAppInstance != nullptr)
-    {
-        OpenGLAppInstance->SpecialKeyDown(key, x, y);
-    }
-}
-
-void OpenGLApp::SpecialKeyDown(int key, int x, int y)
-{
-    if (SpecialKeyDown_CallbackPtr != nullptr)
-        SpecialKeyDown_CallbackPtr(key, x, y);
-}
-
-
-
-void OpenGLApp::MouseClickCallback(int button, int state, int x, int y)
-{
-    if (OpenGLAppInstance != nullptr)
-    {
-        OpenGLAppInstance->MouseClick(button, state, x, y);
-    }
-}
-
-void OpenGLApp::MouseClick(int button, int state, int x, int y)
-{
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-    {
-
-    }
-    else if (button == GLUT_RIGHT_BUTTON)
-    {
-        if (state == GLUT_DOWN)
-        {
-            HID.mouse.right.pressed = true;
-
-            Mouse_lastPosition.x = x;
-            Mouse_lastPosition.y = y;
-        }
-        else if (state == GLUT_UP)
-        {
-            HID.mouse.right.pressed = false;
-        }
-    }
-}
-
-
-
 void OpenGLApp::DisplayCallback()
 {
-    if (OpenGLAppInstance != nullptr)
+    if (OpenGLApp_Instance != nullptr)
     {
-        OpenGLAppInstance->Display();
+        OpenGLApp_Instance->Display();
     }
 }
-
-void OpenGLApp::Close()
-{
-    glutDestroyWindow(glutGetWindow());
-}
-
 
 void OpenGLApp::Display()
 {
@@ -235,17 +154,18 @@ void OpenGLApp::Display()
     glClear(GL_COLOR_BUFFER_BIT);
 
     glPushMatrix();
-    glRotatef(Camera.rotation, 0.0f, 0.0f, 1.0f);
-    glScalef(Camera.zoom, Camera.zoom, 1.0f);
-    glTranslatef(Camera.position.x, Camera.position.y, 0.0f);
+    glRotatef(camera.rotation, 0.0f, 0.0f, 1.0f);
+    glScalef(camera.zoom, camera.zoom, 1.0f);
+    glTranslatef(camera.position.x, camera.position.y, 0.0f);
 
-    
 
-    // Here we draw scene:
-    if (Current_GlScene)  
+
+    // Draw scene:
+    if (current_glScene_Ptr)
     {
-        Current_GlScene->Draw(Camera.position.x, Camera.position.y);
+        current_glScene_Ptr->Draw(camera.position.x, camera.position.y);
     }
+
 
 
     glPopMatrix();
@@ -253,23 +173,9 @@ void OpenGLApp::Display()
     glutSwapBuffers();
 }
 
-void OpenGLApp::Get_CameraPointing(float mouseX, float mouseY, float& pointingX, float& pointingY)
+
+
+void OpenGLApp::Close()
 {
-    int _width = glutGet(GLUT_WINDOW_WIDTH);
-    int _height = glutGet(GLUT_WINDOW_HEIGHT);
-
-    float normalizedX = (2.0f * mouseX) / _width - 1.0f;
-    float normalizedY = 1.0f - (2.0f * mouseY) / _height;
-
-    float invZoomFactor = Camera.zoom;
-    float invOffsetX = -Camera.position.x;
-    float invOffsetY = -Camera.position.y;
-    float invViewRotation = -Camera.rotation;
-
-    float rotatedX = normalizedX * cos(invViewRotation * 3.14159265f / 180.0f) - normalizedY * sin(invViewRotation * 3.14159265f / 180.0f);
-    float rotatedY = normalizedX * sin(invViewRotation * 3.14159265f / 180.0f) + normalizedY * cos(invViewRotation * 3.14159265f / 180.0f);
-
-    pointingX = rotatedX / invZoomFactor + invOffsetX;
-    pointingY = rotatedY / invZoomFactor + invOffsetY;
+    glutDestroyWindow(glutGetWindow());
 }
-

@@ -4,12 +4,20 @@
 
 enum class CMD_RESULT
 {
-    CORRECT,
     EMPTY,
-    INVALID,
+
+    RESULT_CORRECT,
+
+    INPUT_INVALID,
+
+    CMD_REMOVE,
+    CMD_CLEAR_VARIABLES,
 
     CMD_SWITCH_TO_MATH_PARSER,
     CMD_SWITCH_TO_COMMAND_PARSER,
+
+    CMD_HELP,
+    CMD_QUIT,
 
     GL_DRAW_POINT,
     GL_DRAW_LINE,
@@ -20,6 +28,5 @@ enum class CMD_RESULT
     GL_LOAD_TEXTURE,
     GL_DRAW_TEXTURE,
 
-    QUIT,
     EXIT,
 };

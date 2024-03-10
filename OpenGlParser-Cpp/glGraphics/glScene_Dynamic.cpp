@@ -1,120 +1,87 @@
-#include "glScene_Dynamic.h"
+#pragma once
 
-
-
-
-void GlScene_Dynamic::Add_Dot(size_t idx, Point2D position) 
-{
-    methodPointers[idx] = [this, position]() -> bool 
-    { 
-        glDrawInstance->Draw_Dot(position); 
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_Line(size_t idx, Point2D point1, Point2D point2) 
-{
-    methodPointers[idx] = [this, point1, point2]() -> bool 
-    { 
-        glDrawInstance->Draw_Line(point1, point2); 
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_Square(size_t idx, Point2D position, Size2D size) 
-{
-    methodPointers[idx] = [this, position, size]() -> bool 
-    { 
-        glDrawInstance->Draw_Square(position, size);
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_Array(size_t idx, const std::vector<float>& array, Point2D position)
-{
-    methodPointers[idx] = [this, array, position]() -> bool
-    {
-        glDrawInstance->Draw_Array(array, position);
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_Text2D(size_t idx, const std::string text, Point2D position) 
-{
-    methodPointers[idx] = [this, text, position]() -> bool 
-    { 
-        glDrawInstance->Draw_Text(text, position); 
-
-        return false;
-    };
-}
-
-
-
-void GlScene_Dynamic::Add_DrawTexture(size_t idx, GLuint& textureID, Point3D position, Size2D textureSize)
-{
-    methodPointers[idx] = [this, &textureID, position, textureSize]() -> bool
-    {
-        glDrawInstance->DrawTexture(textureID, position, textureSize);
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_DrawTexture(size_t idx, const char* filename, GLuint& textureID, Point3D& position, Size2D textureSize)
-{
-    methodPointers[idx] = [this, &textureID, filename, &position, textureSize]() -> bool 
-    {
-        glDrawInstance->DrawTexture(textureID, filename, position, textureSize);
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_DrawTexture(size_t idx, const char* filename, GLuint& textureID, const Point3D& position, Size2D textureSize)
-{
-    methodPointers[idx] = [this, &textureID, filename, position, textureSize]() -> bool
-    {
-        glDrawInstance->DrawTexture(textureID, filename, position, textureSize);
-
-        return false;
-    };
-}
-
-void GlScene_Dynamic::Add_LoadTexture(size_t idx, const char* filename, GLuint& textureID)
-{
-    methodPointers[idx] = [this, &textureID, filename, idx]() -> bool 
-    {
-        if (glDrawInstance->LoadTexture(filename, textureID)) 
-        {
-            this->Remove_Object(idx);
-
-            return true;
-        }
-        return false;
-    };
-}
-
-
-
-void GlScene_Dynamic::Remove_Object(size_t index) 
-{
-    methodPointers.erase(index);
-}
+#include "GlScene_Dynamic.h"
 
 
 
 void GlScene_Dynamic::Draw(float cameraPositionX, float cameraPositionY)
 {
-    glDrawInstance->Set_CameraShift(Point2D{ cameraPositionX , cameraPositionY });
+    dynamicGlScene.Draw(cameraPositionX, cameraPositionY);
+}
 
-    for (const auto& pair : methodPointers) 
+void GlScene_Dynamic::Execute_CMD(CMD_RESULT cmd, CommandData_t& outCommandData)
+{
+    switch (cmd)
     {
-        if (pair.second())
+
+        case CMD_RESULT::GL_DRAW_POINT:
+            dynamicGlScene.Add_Dot((size_t)outCommandData.vector_float[0], Point2D_t{ outCommandData.vector_float[1], outCommandData.vector_float[2] });
             break;
+
+        case CMD_RESULT::GL_DRAW_LINE:
+            dynamicGlScene.Add_Line((size_t)outCommandData.vector_float[0], Point2D_t{ outCommandData.vector_float[1], outCommandData.vector_float[2] }, Point2D_t{ outCommandData.vector_float[3], outCommandData.vector_float[4] });
+            break;
+
+        case CMD_RESULT::GL_DRAW_SQUARE:
+            dynamicGlScene.Add_Square((size_t)outCommandData.vector_float[0], Point2D_t{ outCommandData.vector_float[1], outCommandData.vector_float[2] }, Point2D_t{ outCommandData.vector_float[3], outCommandData.vector_float[4] });
+            break;
+
+        case CMD_RESULT::GL_DRAW_TEXT:
+        {
+            std::string _inputString;
+
+            for (const std::string& str : outCommandData.vector_string)
+                _inputString += ' ' + str;
+
+            dynamicGlScene.Add_Text2D((size_t)outCommandData.vector_float[0], _inputString, Point2D_t{ outCommandData.vector_float[1], outCommandData.vector_float[2] });
+        }
+        break;
+
+        case CMD_RESULT::GL_DRAW_GRAPH:
+        {
+            size_t _idx = (size_t)outCommandData.vector_float[0];
+            outCommandData.vector_float.erase(outCommandData.vector_float.begin());
+
+            float _x = outCommandData.vector_float[0];
+            outCommandData.vector_float.erase(outCommandData.vector_float.begin());
+
+            float _y = outCommandData.vector_float[0];
+            outCommandData.vector_float.erase(outCommandData.vector_float.begin());
+
+            dynamicGlScene.Add_Array(_idx, outCommandData.vector_float, Point2D_t{ _x, _y });
+        }
+        break;
+
+        case CMD_RESULT::GL_LOAD_TEXTURE:
+        {
+            size_t _textureIndex = (size_t)outCommandData.vector_float[0];
+            GLuint& _textureID = texturePointers[_textureIndex];
+
+            dynamicGlScene.Add_LoadTexture((size_t)outCommandData.vector_float[0], outCommandData.vector_string[0].c_str(), _textureID);
+        }
+        break;
+
+        case CMD_RESULT::GL_DRAW_TEXTURE:
+        {
+            if (texturePointers.find((size_t)outCommandData.vector_float[0]) != texturePointers.end())
+            {
+                GLuint& _textureID = texturePointers[(int)outCommandData.vector_float[0]];
+
+                dynamicGlScene.Add_DrawTexture((size_t)outCommandData.vector_float[0], _textureID, Point3D{ outCommandData.vector_float[1], outCommandData.vector_float[2], outCommandData.vector_float[3] }, Point2D_t{ outCommandData.vector_float[4], outCommandData.vector_float[5] });
+            }
+        }
+        break;
+
+        case CMD_RESULT::CMD_REMOVE:
+        {
+            size_t _idx = (size_t)outCommandData.vector_float[0];
+
+            dynamicGlScene.Remove_Object(_idx);
+        }
+        break;
+
+        default:
+        break;
+
     }
 }

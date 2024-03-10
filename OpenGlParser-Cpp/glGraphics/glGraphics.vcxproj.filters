@@ -25,20 +25,11 @@
     <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes">
       <UniqueIdentifier>{2666bfd1-a7bf-498b-9f03-e80f202dd758}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\base">
-      <UniqueIdentifier>{bffc5374-111c-4dac-b1a0-da82e1cda4cb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki źródłowe\main\glWindow_Scenes">
       <UniqueIdentifier>{e1e4b549-d4ea-4a9a-8b32-8bc7b4988737}</UniqueIdentifier>
     </Filter>
     <Filter Include="Pliki źródłowe\main\glWindow_Scenes\base">
       <UniqueIdentifier>{116eb53d-1e65-4a59-aef2-93a6b586ac7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\glScene">
-      <UniqueIdentifier>{2dbab150-e56f-47d6-b9d0-6a41559bfc51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\glScene\glDraw">
-      <UniqueIdentifier>{72c3ef44-e40b-4290-8464-a422f166d826}</UniqueIdentifier>
     </Filter>
     <Filter Include="Pliki źródłowe\main\parser">
       <UniqueIdentifier>{1cf0886e-d238-47cc-8c42-ab574405b5ab}</UniqueIdentifier>
@@ -46,25 +37,58 @@
     <Filter Include="Pliki nagłówkowe\main\parser">
       <UniqueIdentifier>{364ec51d-20f8-4970-97e0-8fdd621ed7eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\main\parser\parser_Math-Base">
-      <UniqueIdentifier>{957d9db9-0547-4201-a0d7-5a15d6b803ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki nagłówkowe\main\parser\parser_Command">
       <UniqueIdentifier>{81cc5a2c-f34e-4573-ba51-dc8a47fc74db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\main\parser\parser_Command\base">
+    <Filter Include="Pliki źródłowe\main\glWindow">
+      <UniqueIdentifier>{c0496df4-99e1-4dbe-b32f-8aced8a2e924}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow">
+      <UniqueIdentifier>{66300c97-e220-417b-94ba-65f1f105afbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Common">
+      <UniqueIdentifier>{b8da218a-1d7a-4f21-9e11-4cb89335d755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\parser_Math">
+      <UniqueIdentifier>{957d9db9-0547-4201-a0d7-5a15d6b803ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\base">
       <UniqueIdentifier>{92bac170-49ab-4c69-8584-feb1f8bca244}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\main\parser\parser_Math-Base\base">
-      <UniqueIdentifier>{65cb2238-d7ce-42c6-8a72-0e4cbab2c636}</UniqueIdentifier>
+    <Filter Include="Pliki źródłowe\main\parser\base">
+      <UniqueIdentifier>{7a339969-30cf-4659-a839-513c318c8d59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\parser\base\StringMathParser">
+      <UniqueIdentifier>{9b3622e7-2af1-4d9e-bd19-d6dbc131bd3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\base">
+      <UniqueIdentifier>{bffc5374-111c-4dac-b1a0-da82e1cda4cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\glScene_Dynamic">
+      <UniqueIdentifier>{2eb48b52-3e51-47ce-924a-040fe972eb2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\glWindow-Scenes\base\glDraw">
+      <UniqueIdentifier>{72c3ef44-e40b-4290-8464-a422f166d826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\glWindow_Scenes\glScene_Dynamic">
+      <UniqueIdentifier>{19fc6a6a-0cf3-43db-abd1-56b1a7944ccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\main\parser\base\StringMathParser">
+      <UniqueIdentifier>{2f3cef2e-f2dd-42dd-b07d-595a5d4f869e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\parser\parser_Command">
+      <UniqueIdentifier>{c55ecb50-8cc2-4a08-81fa-df7d32be16c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\parser\parser_Math">
+      <UniqueIdentifier>{d3f25c9d-88c4-459f-8193-48cd987b24b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\main\parser\parser_Common">
+      <UniqueIdentifier>{b91e6b0a-dacf-41c3-9ce5-3e9529c50d3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="glScene_Dynamic.cpp">
-      <Filter>Pliki źródłowe\main\glWindow_Scenes</Filter>
     </ClCompile>
     <ClCompile Include="glWindow.cpp">
       <Filter>Pliki źródłowe\main</Filter>
@@ -75,29 +99,77 @@
     <ClCompile Include="parser_Command.cpp">
       <Filter>Pliki źródłowe\main\parser</Filter>
     </ClCompile>
-    <ClCompile Include="parsersManager.cpp">
+    <ClCompile Include="parser.cpp">
       <Filter>Pliki źródłowe\main</Filter>
-    </ClCompile>
-    <ClCompile Include="parser_Help.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
     </ClCompile>
     <ClCompile Include="parser_Math.cpp">
-      <Filter>Pliki źródłowe\main</Filter>
+      <Filter>Pliki źródłowe\main\parser</Filter>
+    </ClCompile>
+    <ClCompile Include="glInput.cpp">
+      <Filter>Pliki źródłowe\main\glWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="glCamera.cpp">
+      <Filter>Pliki źródłowe\main\glWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="glScene_Dynamic.cpp">
+      <Filter>Pliki źródłowe\main\glWindow_Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="StringMathParser.cpp">
+      <Filter>Pliki źródłowe\main\parser\base</Filter>
+    </ClCompile>
+    <ClCompile Include="StringMathTokenizer.cpp">
+      <Filter>Pliki źródłowe\main\parser\base\StringMathParser</Filter>
+    </ClCompile>
+    <ClCompile Include="glScene_Dynamic_Driver.cpp">
+      <Filter>Pliki źródłowe\main\glWindow_Scenes\glScene_Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StringCommandParser.cpp">
+      <Filter>Pliki źródłowe\main\parser\base</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Exit.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Line.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Load.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Point.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Remove.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Switch_Math.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Square.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Text.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Texture.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Command</Filter>
+    </ClCompile>
+    <ClCompile Include="command_Help.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Common</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Clear.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Graph.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Math</Filter>
+    </ClCompile>
+    <ClCompile Include="parser_Switch_Command.cpp">
+      <Filter>Pliki źródłowe\main\parser\parser_Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="glScene_Dynamic.h">
-      <Filter>Pliki nagłówkowe\main\glWindow-Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="glScene.h">
-      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\base</Filter>
-    </ClInclude>
-    <ClInclude Include="command_Help.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
-    </ClInclude>
     <ClInclude Include="command_Switch_Math.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
     </ClInclude>
@@ -108,34 +180,22 @@
       <Filter>Pliki nagłówkowe\main</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene\glDraw</Filter>
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\base\glDraw</Filter>
     </ClInclude>
-    <ClInclude Include="Parser_CMD.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Command\base</Filter>
-    </ClInclude>
-    <ClInclude Include="glDraw.h">
-      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene</Filter>
+    <ClInclude Include="Parser_Base.h">
+      <Filter>Pliki nagłówkowe\main\parser\base</Filter>
     </ClInclude>
     <ClInclude Include="parser_Math.h">
       <Filter>Pliki nagłówkowe\main\parser</Filter>
     </ClInclude>
-    <ClInclude Include="command_Exit.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
-    </ClInclude>
-    <ClInclude Include="parsersManager.h">
+    <ClInclude Include="parser.h">
       <Filter>Pliki nagłówkowe\main</Filter>
     </ClInclude>
     <ClInclude Include="parser_Command.h">
       <Filter>Pliki nagłówkowe\main\parser</Filter>
     </ClInclude>
-    <ClInclude Include="Parser_Equations.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base\base</Filter>
-    </ClInclude>
     <ClInclude Include="parser_Switch_Command.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
-    </ClInclude>
-    <ClInclude Include="parser_Exit.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math</Filter>
     </ClInclude>
     <ClInclude Include="command_Line.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
@@ -150,13 +210,58 @@
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
     </ClInclude>
     <ClInclude Include="parser_Graph.h">
-      <Filter>Pliki nagłówkowe\main\parser\parser_Math-Base</Filter>
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math</Filter>
     </ClInclude>
     <ClInclude Include="command_Load.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
     </ClInclude>
     <ClInclude Include="command_Texture.h">
       <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="glInput.h">
+      <Filter>Pliki nagłówkowe\main\glWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="glCamera.h">
+      <Filter>Pliki nagłówkowe\main\glWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Help.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Exit.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Common</Filter>
+    </ClInclude>
+    <ClInclude Include="glScene_Dynamic.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="command_Remove.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Command</Filter>
+    </ClInclude>
+    <ClInclude Include="StringMathParser.h">
+      <Filter>Pliki nagłówkowe\main\parser\base</Filter>
+    </ClInclude>
+    <ClInclude Include="parser_Clear.h">
+      <Filter>Pliki nagłówkowe\main\parser\parser_Math</Filter>
+    </ClInclude>
+    <ClInclude Include="glScene_Dynamic_Driver.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\glScene_Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="glScene_Base.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="glDraw.h">
+      <Filter>Pliki nagłówkowe\main\glWindow-Scenes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>Pliki nagłówkowe\GLOBAL</Filter>
+    </ClInclude>
+    <ClInclude Include="StringCommandParser.h">
+      <Filter>Pliki nagłówkowe\main\parser\base</Filter>
+    </ClInclude>
+    <ClInclude Include="StringMathTokenizer.h">
+      <Filter>Pliki nagłówkowe\main\parser\base\StringMathParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

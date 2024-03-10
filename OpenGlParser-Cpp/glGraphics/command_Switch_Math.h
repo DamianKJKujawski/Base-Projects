@@ -1,19 +1,23 @@
 #pragma once
 
-#include "Parser_CMD.h"
+#include "Parser_Base.h"
 
 
 
-class Command_Switch_Math : public Parser_CMD
+class Command_Switch_Math : public Parser_Base
 {
 
 public:
 
-    CMD_RESULT Execute(const std::string& args, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override
-    {
-        std::cout << "MATH Parser: " << args << "\n";
+    Command_Switch_Math() {}
+    ~Command_Switch_Math() {}
 
-        return CMD_RESULT::CMD_SWITCH_TO_MATH_PARSER;
+
+
+    std::string Get_Description() override {
+        return "Switch to Math Parser";
     }
+
+    CMD_RESULT Execute(const std::string& args, CommandData_t& outCommandData) override;
 
 };

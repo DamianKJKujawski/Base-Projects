@@ -128,42 +128,68 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="parsersManager.cpp" />
+    <ClCompile Include="command_Exit.cpp" />
+    <ClCompile Include="command_Help.cpp" />
+    <ClCompile Include="command_Line.cpp" />
+    <ClCompile Include="command_Load.cpp" />
+    <ClCompile Include="command_Point.cpp" />
+    <ClCompile Include="command_Remove.cpp" />
+    <ClCompile Include="command_Square.cpp" />
+    <ClCompile Include="command_Switch_Math.cpp" />
+    <ClCompile Include="command_Text.cpp" />
+    <ClCompile Include="command_Texture.cpp" />
+    <ClCompile Include="glCamera.cpp" />
+    <ClCompile Include="glInput.cpp" />
+    <ClCompile Include="glScene_Dynamic.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="parser_Clear.cpp" />
     <ClCompile Include="parser_Command.cpp" />
     <ClCompile Include="glDraw.cpp" />
-    <ClCompile Include="glScene_Dynamic.cpp" />
+    <ClCompile Include="glScene_Dynamic_Driver.cpp" />
     <ClCompile Include="glWindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="parser_Help.h" />
+    <ClCompile Include="parser_Graph.cpp" />
     <ClCompile Include="parser_Math.cpp" />
+    <ClCompile Include="parser_Switch_Command.cpp" />
+    <ClCompile Include="StringCommandParser.cpp" />
+    <ClCompile Include="StringMathParser.cpp" />
+    <ClCompile Include="StringMathTokenizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="parser_Clear.h" />
+    <ClInclude Include="Project.h" />
+    <ClInclude Include="StringCommandParser.h" />
     <ClInclude Include="CMD.h" />
     <ClInclude Include="command_Load.h" />
     <ClInclude Include="command_Point.h" />
     <ClInclude Include="command_Line.h" />
+    <ClInclude Include="command_Remove.h" />
     <ClInclude Include="command_Square.h" />
     <ClInclude Include="command_Text.h" />
     <ClInclude Include="command_Texture.h" />
+    <ClInclude Include="glCamera.h" />
+    <ClInclude Include="glInput.h" />
+    <ClInclude Include="glScene_Dynamic.h" />
+    <ClInclude Include="StringMathParser.h" />
     <ClInclude Include="parser_Graph.h" />
-    <ClInclude Include="parser_Exit.h" />
     <ClInclude Include="parser_Switch_Command.h" />
-    <ClInclude Include="parsersManager.h" />
-    <ClInclude Include="Parser_CMD.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="Parser_Base.h" />
     <ClInclude Include="parser_Command.h" />
     <ClInclude Include="command_Exit.h" />
     <ClInclude Include="command_Switch_Math.h" />
     <ClInclude Include="glDraw.h" />
-    <ClInclude Include="glScene_Dynamic.h" />
+    <ClInclude Include="glScene_Dynamic_Driver.h" />
     <ClInclude Include="glWindow.h" />
     <ClInclude Include="command_Help.h" />
-    <ClInclude Include="Parser_Equations.h" />
     <ClInclude Include="parser_Math.h" />
-    <ClInclude Include="glScene.h" />
+    <ClInclude Include="glScene_Base.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="StringMathTokenizer.h" />
+    <ClInclude Include="Struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

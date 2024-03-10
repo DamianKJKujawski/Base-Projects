@@ -1,40 +1,26 @@
 #ifndef MATH_PARSER_HPP
 #define MATH_PARSER_HPP
 
-
-
 #include <iostream>
-#include <stack>
-#include <cmath>
 #include <unordered_map>
 
-#include "Parser_Equations.h"
-
+#include "StringMathParser.h"
+#include "command_Help.h"
+#include "command_Exit.h"
 #include "parser_Switch_Command.h"
-#include "parser_Help.h"
-#include "parser_Exit.h"
 #include "parser_Graph.h"
+#include "parser_Clear.h"
 
 
 
-class Parser_Math : Parser_Equations
+class Parser_Math
 {
 
 private:
 
-	std::map<std::string, std::unique_ptr<Parser_CMD>> commands;
+	std::map<std::string, std::unique_ptr<Parser_Base>> commands;
 
-	std::unordered_map<char, double> variables;
-
-	std::string previousExpression;
-
-
-
-	bool IsOperator(char c);
-	int  Precedence(char op);
-	void ApplyOperation(std::stack<double>& numbers, std::stack<char>& operators);
-
-	std::string RemoveEmptySpaces(const std::string& expression);
+	StringMathParser stringMathParser;
 
 
 
@@ -42,24 +28,20 @@ public:
 
     Parser_Math()
     {
-        // Add commands to the map
 		commands["graph"] = std::make_unique<Parser_Graph>();
+		commands["clear"] = std::make_unique<Parser_Clear>();
 
-        commands["help"] = std::make_unique<Parser_Help>(commands);
-
-        commands["exit"] = std::make_unique<Parser_Exit>();
-
+		commands["help"] = std::make_unique<Command_Help>(commands);
         commands["cmd"] = std::make_unique<Parser_Switch_Command>();
+		commands["exit"] = std::make_unique<Command_Exit>();
     }
 
 
 
-	CMD_RESULT Parse(const std::string& expression, double& result, std::vector<float>& outputVector_f, std::vector<std::string>& outputVector_s) override;
-	CMD_RESULT Parse_Math(const std::string& expression, double& result);
+	CMD_RESULT Parse(const std::string& expression, CommandData_t& outCommandData);
 
-	bool Recalculate(char variable, double value, double& result);
-
-
+	void Clear_UsedVariables();
+	void Reparse_LastExpression(char variableName, CommandData_t& outCommandData);
 
 };
 

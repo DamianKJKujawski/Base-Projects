@@ -1,5 +1,7 @@
 #include "glDraw.h"
+
 #include <iostream>
+#include <GL/freeglut.h>
 
 //#Not object oriented
 #pragma warning(push)
@@ -16,16 +18,6 @@ GlDraw* GlDraw::GlDrawInstance = nullptr;
 
 
 
-GlDraw::GlDraw() 
-{
-
-}
-
-GlDraw::~GlDraw() 
-{
-
-}
-
 GlDraw* GlDraw::Get_Instance()
 {
     if (!GlDrawInstance)
@@ -37,13 +29,12 @@ GlDraw* GlDraw::Get_Instance()
 
 
 
-
 inline Point3D GlDraw::Get_ShiftedPosition(Point3D point)
 {
     return Point3D{ point.x + (cameraShift.x * point.z), point.y + (cameraShift.y * point.z), point.z };
 }
 
-void GlDraw::Draw_Text(const std::string text, Point2D point)
+void GlDraw::Draw_Text(const std::string text, Point2D_t point)
 {
     glColor3f(0.0, 1.0, 0.0);
 
@@ -54,12 +45,12 @@ void GlDraw::Draw_Text(const std::string text, Point2D point)
     }
 }
 
-void GlDraw::Set_CameraShift(Point2D point)
+void GlDraw::Set_CameraShift(Point2D_t point)
 {
     this->cameraShift = point;
 }
 
-void GlDraw::Draw_Dot(Point2D point)
+void GlDraw::Draw_Dot(Point2D_t point)
 {
     glColor3f(1.0, 0.0, 0.0);
     glPointSize(5.0);
@@ -69,7 +60,7 @@ void GlDraw::Draw_Dot(Point2D point)
     glEnd();
 }
 
-void GlDraw::Draw_Line(Point2D point, Point2D point2)
+void GlDraw::Draw_Line(Point2D_t point, Point2D_t point2)
 {
     glColor3f(0.0, 1.0, 1.0);
 
@@ -81,7 +72,7 @@ void GlDraw::Draw_Line(Point2D point, Point2D point2)
     glEnd();
 }
 
-void GlDraw::Draw_Square(Point2D point, Size2D size)
+void GlDraw::Draw_Square(Point2D_t point, Size2D size)
 {
     glColor3f(0.0, 1.0, 1.0);
 
@@ -96,7 +87,7 @@ void GlDraw::Draw_Square(Point2D point, Size2D size)
     glEnd();
 }
 
-void GlDraw::Draw_Array(const std::vector<float>& array, Point2D point)
+void GlDraw::Draw_Array(const std::vector<float>& array, Point2D_t point)
 {
     glColor3f(0.0, 1.0, 1.0);
 
