@@ -1,0 +1,128 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>SmartHome_Editor</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version />
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MainWindow\DDX11Class2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="00001.jpg" />
+    <None Remove="00001.png" />
+    <None Remove="12_generated.jpg" />
+    <None Remove="1705408447737ivxm533a.png" />
+    <None Remove="1920x1080.jpg" />
+    <None Remove="360_F_624153660_DSdKU36a8BEfpJxpinpzHUHKuP8XIxZJ.jpg" />
+    <None Remove="65783d01c5a60fb575c4f574_SecureSoftware_img %281%29.jpg" />
+    <None Remove="76baab1d9a3c300fac568c8e3e19d76d.jpg" />
+    <None Remove="957529.png" />
+    <None Remove="9ed27253192b41fabf623824b0e991d5.jpg" />
+    <None Remove="add.jpg" />
+    <None Remove="bck.png" />
+    <None Remove="bck2.png.jpg" />
+    <None Remove="blogimage-benefits-isolated-tenanted-infastructure-2023.jpg" />
+    <None Remove="Database-activity-monitoring-cloud4c-webpage-1.png" />
+    <None Remove="depositphotos_226370942-stock-illustration-illustration-cloud-server-connected-multiple.jpg" />
+    <None Remove="depositphotos_226370942-stock-illustration-illustration-cloud-server-connected-multiple.webp" />
+    <None Remove="desktop-wallpaper-minimalist-1366x768-blue.jpg" />
+    <None Remove="download.jpg" />
+    <None Remove="e346663dea1545428a58d7f240689640.jpg" />
+    <None Remove="grid_style_a_-_512x512_-_128x64.png" />
+    <None Remove="icon_arrow_left.png" />
+    <None Remove="icon_arrow_left_s.png" />
+    <None Remove="icon_arrow_right.png" />
+    <None Remove="icon_arrow_s.png" />
+    <None Remove="icon_close.png" />
+    <None Remove="icon_info.png" />
+    <None Remove="icon_m.png" />
+    <None Remove="icon_ma.png" />
+    <None Remove="icon_maximize.png" />
+    <None Remove="icon_minimize.png" />
+    <None Remove="icon_n.png" />
+    <None Remove="icon_network.png" />
+    <None Remove="icon_other.png" />
+    <None Remove="icon_program.png" />
+    <None Remove="icon_s.png" />
+    <None Remove="icon_sensor.png" />
+    <None Remove="icon_switch.png" />
+    <None Remove="icon_x.png" />
+    <None Remove="isometric-minimalism-blender-pyramid-223wallpaper-preview.jpg" />
+    <None Remove="isometric-minimalism-blender-pyramid-wallpaper-preview.jpg" />
+    <None Remove="isometric-technology-view-of-cloud-computing-in-3d-rendering-concept_9633564.jpg" />
+    <None Remove="logo.png" />
+    <None Remove="OIG.HwDcxPmfjjH.jpg" />
+    <None Remove="OIG.jpeg" />
+    <None Remove="OIG.jpg" />
+    <None Remove="pexels-rodion-kutsaiev-9436715.jpg" />
+    <None Remove="smart-home-interface-with-augmented-realty-iot-object-interior-design_756748-3174.jpg" />
+    <None Remove="_e1e75826-5553-459f-b1bc-12bccb6cd4c5.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.D3DCompiler" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
+    <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DSharp_InteropLibrary\DSharp_Interop.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Wpf.Interop.DirectX">
+      <HintPath>bin\x64\Debug\net7.0-windows\Microsoft.Wpf.Interop.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfSharpDXLib">
+      <HintPath>..\WpfSharpDXLib\bin\x64\Debug\net7.0-windows\WpfSharpDXLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="GRAPHICS\background_smarthome.jpg" />
+    <Resource Include="GRAPHICS\icon_close.png" />
+    <Resource Include="GRAPHICS\icon_info.png" />
+    <Resource Include="GRAPHICS\icon_maximize.png" />
+    <Resource Include="GRAPHICS\icon_minimize.png" />
+    <Resource Include="GRAPHICS\icon_network.png" />
+    <Resource Include="GRAPHICS\icon_other.png" />
+    <Resource Include="GRAPHICS\icon_sensor.png" />
+    <Resource Include="GRAPHICS\icon_switch.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="RESOURCES\Controls\Control_Menu_SensorsSettings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

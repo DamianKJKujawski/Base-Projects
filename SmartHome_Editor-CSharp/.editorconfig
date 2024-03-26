@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0251: Ustaw element członkowski jako „readonly”
+csharp_style_prefer_readonly_struct_member = true

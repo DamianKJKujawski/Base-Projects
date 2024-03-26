@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:controls="clr-namespace:SmartHome_Editor.Resources">
+
+    <!-- Controls -->
+    <DataTemplate x:Key="NetworkSettings_Menu"> <!-- Network Settings Menu -->
+        <controls:Control_Menu_NetworkSettings/>     
+    </DataTemplate>
+
+    <DataTemplate x:Key="SensorsSettings_Menu"> <!-- Sensor Settings Menu -->
+        <controls:Control_Menu_SensorsSettings/>
+    </DataTemplate>
+
+</ResourceDictionary>

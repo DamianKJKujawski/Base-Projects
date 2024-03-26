@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="RESOURCES\Controls\Control_Menu_NetworkSettings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Controls\Control_Menu_SensorsSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Controls\Control_Menu_NetworkSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Controls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_CheckBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_Thumb.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_ScrollBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_Tooltip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_PasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_TextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_TabItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_MenuItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_ContextMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RESOURCES\Styles\Styles_Button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

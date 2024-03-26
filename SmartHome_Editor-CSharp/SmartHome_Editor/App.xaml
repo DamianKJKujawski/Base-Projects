@@ -1,0 +1,48 @@
+﻿<Application x:Class="SmartHome_Editor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SmartHome_Editor"
+             StartupUri="MainWindow.xaml">
+
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Buttons -->
+            <Style TargetType="Button" BasedOn="{StaticResource Button_Global}"/>
+
+            <!-- ContextMenus -->
+            <Style TargetType="ContextMenu" BasedOn="{StaticResource ContextMenu_Global}"/>
+
+            <!-- MenuItem -->
+            <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItem_Global}"/>
+
+            <!-- TabItem -->
+            <Style TargetType="TabItem" BasedOn="{StaticResource TabItem_Global}"/>
+
+            <!-- TextBox -->
+            <Style TargetType="TextBox" BasedOn="{StaticResource TextBox_Global}"/>
+
+            <!-- Tooltip -->
+            <Style TargetType="ToolTip" BasedOn="{StaticResource Tooltip_Global}"/>
+
+            <!-- PasswordBox -->
+            <Style TargetType="PasswordBox" BasedOn="{StaticResource PasswordBox_Global}"/>
+
+            <!-- ScrollBar -->
+            <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBar_Global}"/>
+            
+            <!-- Thumb -->
+            <Style TargetType="Thumb" BasedOn="{StaticResource Thumb_Global}"/>
+
+            <!-- CheckBox -->
+            <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxes_Global}"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
